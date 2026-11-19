@@ -1,0 +1,424 @@
+{
+  "address": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+  "abi": [
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "certId",
+          "type": "uint256"
+        }
+      ],
+      "name": "AlreadyRevoked",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "supplied",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "maximum",
+          "type": "uint256"
+        }
+      ],
+      "name": "BatchTooLarge",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "certId",
+          "type": "uint256"
+        }
+      ],
+      "name": "CertificateNotFound",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "studentId",
+          "type": "string"
+        }
+      ],
+      "name": "DuplicateStudentId",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "EmptyBatch",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "EmptyRequiredField",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "InvalidArrayLengths",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "InvalidRecipient",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "NotAdmin",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "NotOwner",
+      "type": "error"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "bool",
+          "name": "enabled",
+          "type": "bool"
+        }
+      ],
+      "name": "AdminUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "certId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "studentId",
+          "type": "string"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "recipient",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "studentName",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "diplomaTitle",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "issueDate",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "grade",
+          "type": "string"
+        }
+      ],
+      "name": "CertificateMinted",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "certId",
+          "type": "uint256"
+        }
+      ],
+      "name": "CertificateRevoked",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "MAX_BATCH",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "addAdmin",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address[]",
+          "name": "recipients",
+          "type": "address[]"
+        },
+        {
+          "internalType": "string[]",
+          "name": "studentNames",
+          "type": "string[]"
+        },
+        {
+          "internalType": "string[]",
+          "name": "studentIds",
+          "type": "string[]"
+        },
+        {
+          "internalType": "string[]",
+          "name": "diplomaTitles",
+          "type": "string[]"
+        },
+        {
+          "internalType": "string[]",
+          "name": "issueDates",
+          "type": "string[]"
+        },
+        {
+          "internalType": "string[]",
+          "name": "grades",
+          "type": "string[]"
+        }
+      ],
+      "name": "batchMint",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "studentId",
+          "type": "string"
+        }
+      ],
+      "name": "getCertIdByStudentId",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "certId",
+          "type": "uint256"
+        }
+      ],
+      "name": "getCertificate",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "string",
+              "name": "studentName",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "studentId",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "diplomaTitle",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "issueDate",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "grade",
+              "type": "string"
+            },
+            {
+              "internalType": "address",
+              "name": "recipient",
+              "type": "address"
+            },
+            {
+              "internalType": "bool",
+              "name": "revoked",
+              "type": "bool"
+            }
+          ],
+          "internalType": "struct CertificateRegistry.Certificate",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "isAdmin",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "internalType": "string",
+          "name": "studentName",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "studentId",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "diplomaTitle",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "issueDate",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "grade",
+          "type": "string"
+        }
+      ],
+      "name": "mintCertificate",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "certId",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "removeAdmin",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "certId",
+          "type": "uint256"
+        }
+      ],
+      "name": "revoke",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "totalCertificates",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ]
+}
